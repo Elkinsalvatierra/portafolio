@@ -1,0 +1,336 @@
+/* =================================
+   VARIABLES
+================================= */
+
+:root {
+    --primary: #00e5ff;
+    --secondary: #7c3aed;
+
+    --background: #080b14;
+    --surface: #111827;
+
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+
+    --font: Arial, sans-serif;
+
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+
+    --radius: 1rem;
+
+    --shadow: 0 4px 20px rgb(0 229 255 / 0.1);
+}
+
+
+/* =================================
+   RESETEO
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =================================
+   GENERAL
+================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =================================
+   NAVBAR
+================================= */
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: var(--space-md);
+
+    display: flex;
+    justify-content: center;
+
+    gap: var(--space-lg);
+}
+
+nav a {
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+
+/* =================================
+   MAIN
+================================= */
+
+main {
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* =================================
+   SECCIONES
+================================= */
+
+section {
+    min-height: 70vh;
+
+    padding: 4rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* =================================
+   TITULOS
+================================= */
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: var(--space-lg);
+}
+
+p {
+    color: var(--text-muted);
+}
+
+
+/* =================================
+   INICIO
+================================= */
+
+#inicio {
+    text-align: center;
+    align-items: center;
+}
+
+#inicio img {
+    width: 180px;
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin-bottom: var(--space-md);
+
+    border: 3px solid var(--primary);
+
+    box-shadow:
+        0 0 20px rgb(0 229 255 / 0.3);
+}
+
+.subtitulo {
+    color: var(--primary);
+
+    font-size: 0.9rem;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+#inicio p:not(.subtitulo) {
+    max-width: 600px;
+}
+
+
+/* =================================
+   BOTONES
+================================= */
+
+.botones {
+    display: flex;
+
+    gap: var(--space-md);
+
+    margin-top: var(--space-lg);
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 0.75rem 1.5rem;
+
+    border-radius: var(--radius);
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--primary);
+
+    color: var(--background);
+}
+
+.btn-primary:hover {
+    box-shadow:
+        0 0 20px rgb(0 229 255 / 0.4);
+
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    color: var(--primary);
+
+    border: 1px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+
+    color: var(--background);
+
+    transform: translateY(-3px);
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    text-align: center;
+
+    padding: var(--space-lg);
+
+    background: var(--surface);
+}
+
+footer p {
+    color: var(--text-muted);
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-wrap: wrap;
+
+        gap: var(--space-sm);
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .botones {
+        flex-direction: column;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        text-align: center;
+    }
+}
+
+/* ================================
+   SOBRE MÍ
+================================ */
+
+.sobre-mi-card {
+    background: var(--surface);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgb(0 229 255 / 0.15);
+}
+
+.sobre-mi-card h3 {
+    color: var(--primary);
+    margin-bottom: var(--space-sm);
+}
+
+.sobre-mi-card p {
+    margin-bottom: var(--space-md);
+} 
+#sobre-mi img {
+    width: 180px;
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 10%;
+
+    margin-bottom: var(--space-md);
+
+    border: 3px solid var(--primary);
+
+    box-shadow:
+        0 0 20px rgb(0 229 255 / 0.3);
+}
+/* ================================
+   HABILIDADES
+================================ */
+
+.habilidades-card {
+    background: var(--surface);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgb(0 229 255 / 0.15);
+}
+
+.habilidades-card h3 {
+    color: var(--primary);
+    margin-bottom: var(--space-sm);
+}
+
+.habilidades-card p {
+    margin-bottom: var(--space-md);
+}
