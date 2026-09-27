@@ -1,70 +1,199 @@
-const botonVerImagenesBlackjack = document.getElementById("ver-imagenes-blackjack");
-const botonCerrarGaleriaBlackjack = document.getElementById("cerrar-galeria-blackjack");
-const galeriaBlackjack = document.getElementById("galeria-blackjack");
+/* ==================== GALERÍA BLACK JACK ==================== */
+
+const botonBlackjack =
+    document.getElementById("ver-imagenes-blackjack");
+
+const galeriaBlackjack =
+    document.getElementById("galeria-blackjack");
+
+const cerrarBlackjack =
+    document.getElementById("cerrar-galeria-blackjack");
 
 
-const botonVerImagenesPareja = document.getElementById("ver-imagenes-pareja");
-const botonCerrarGaleriaPareja = document.getElementById("cerrar-galeria-pareja");
-const galeriaPareja = document.getElementById("galeria-pareja");
+if (botonBlackjack && galeriaBlackjack) {
 
+    botonBlackjack.addEventListener("click", () => {
 
-const botonVerImagenesNeumscan = document.getElementById("ver-imagenes-neumscan");
-const botonCerrarGaleriaNeumscan = document.getElementById("cerrar-galeria-neumscan");
-const galeriaNeumscan = document.getElementById("galeria-neumscan");
+        galeriaBlackjack.classList.add("activa");
 
+        galeriaBlackjack.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
-botonVerImagenesBlackjack.addEventListener("click", () => {
-
-    galeriaBlackjack.classList.add("activa");
-
-    galeriaBlackjack.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
     });
 
-});
+}
 
 
-botonCerrarGaleriaBlackjack.addEventListener("click", () => {
+if (cerrarBlackjack && galeriaBlackjack) {
 
-    galeriaBlackjack.classList.remove("activa");
+    cerrarBlackjack.addEventListener("click", () => {
 
-});
+        galeriaBlackjack.classList.remove("activa");
 
-
-botonVerImagenesPareja.addEventListener("click", () => {
-
-    galeriaPareja.classList.add("activa");
-
-    galeriaPareja.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
     });
 
-});
+}
 
 
-botonCerrarGaleriaPareja.addEventListener("click", () => {
+/* ==================== GALERÍA PAREJA ==================== */
 
-    galeriaPareja.classList.remove("activa");
+const botonPareja =
+    document.getElementById("ver-imagenes-pareja");
 
-});
+const galeriaPareja =
+    document.getElementById("galeria-pareja");
+
+const cerrarPareja =
+    document.getElementById("cerrar-galeria-pareja");
 
 
-botonVerImagenesNeumscan.addEventListener("click", () => {
+if (botonPareja && galeriaPareja) {
 
-    galeriaNeumscan.classList.add("activa");
+    botonPareja.addEventListener("click", () => {
 
-    galeriaNeumscan.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+        galeriaPareja.classList.add("activa");
+
+        galeriaPareja.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
     });
 
-});
+}
 
 
-botonCerrarGaleriaNeumscan.addEventListener("click", () => {
+if (cerrarPareja && galeriaPareja) {
 
-    galeriaNeumscan.classList.remove("activa");
+    cerrarPareja.addEventListener("click", () => {
 
-});
+        galeriaPareja.classList.remove("activa");
+
+    });
+
+}
+
+
+/* ==================== GALERÍA NEUMSCAN ==================== */
+
+const botonNeumscan =
+    document.getElementById("ver-imagenes-neumscan");
+
+const galeriaNeumscan =
+    document.getElementById("galeria-neumscan");
+
+const cerrarNeumscan =
+    document.getElementById("cerrar-galeria-neumscan");
+
+
+if (botonNeumscan && galeriaNeumscan) {
+
+    botonNeumscan.addEventListener("click", () => {
+
+        galeriaNeumscan.classList.add("activa");
+
+        galeriaNeumscan.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    });
+
+}
+
+
+if (cerrarNeumscan && galeriaNeumscan) {
+
+    cerrarNeumscan.addEventListener("click", () => {
+
+        galeriaNeumscan.classList.remove("activa");
+
+    });
+
+}
+
+
+/* ==================== FORMULARIO DE CONTACTO ==================== */
+
+const formulario =
+    document.getElementById("contact-form");
+
+const mensajeFormulario =
+    document.getElementById("form-message");
+
+
+if (formulario) {
+
+    formulario.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+
+        const nombre =
+            document.getElementById("nombre").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const asunto =
+            document.getElementById("asunto").value.trim();
+
+        const mensaje =
+            document.getElementById("mensaje").value.trim();
+
+
+        if (
+            nombre === "" ||
+            email === "" ||
+            asunto === "" ||
+            mensaje === ""
+        ) {
+
+            mensajeFormulario.textContent =
+                "Por favor, completa todos los campos.";
+
+            mensajeFormulario.style.display = "block";
+
+            return;
+
+        }
+
+
+        const correoDestino =
+            "salvatierraelkin87@gmail.com";
+
+
+        const asuntoCorreo =
+            encodeURIComponent(asunto);
+
+
+        const cuerpoCorreo =
+            encodeURIComponent(
+                "Nombre: " + nombre +
+                "\nCorreo: " + email +
+                "\n\nMensaje:\n" + mensaje
+            );
+
+
+        const enlaceCorreo =
+            "mailto:" +
+            correoDestino +
+            "?subject=" +
+            asuntoCorreo +
+            "&body=" +
+            cuerpoCorreo;
+
+
+        window.location.href = enlaceCorreo;
+
+
+        mensajeFormulario.textContent =
+            "Abriendo tu aplicación de correo...";
+
+        mensajeFormulario.style.display = "block";
+
+    });
+
+}
